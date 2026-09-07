@@ -650,9 +650,15 @@ function CredentialCard({ image, alt, level, title, blurb }) {
 }
 
 function CredentialsWall() {
+  // Prefix with Vite's BASE_URL so image paths resolve correctly whether
+  // the site is deployed at a domain root or a GitHub Pages sub-path
+  // (e.g. https://<user>.github.io/<repo>/) — a plain "/assets/..." string
+  // is NOT rewritten by Vite at build time, only imported modules are.
+  const asset = (path) => `${import.meta.env.BASE_URL}${path}`;
+
   const credentials = [
     {
-      image: "/assets/credentials/amc8-distinction.svg",
+      image: asset("assets/credentials/amc8-distinction.jpg"),
       alt: "AMC 8 Certificate of Distinction",
       level: "Top 5% Globally",
       title: "AMC 8 Certificate of Distinction",
@@ -660,7 +666,7 @@ function CredentialsWall() {
         "This is our coaching at full stretch — a direct result against North America's toughest selection bar. For families aiming at the very top.",
     },
     {
-      image: "/assets/credentials/amc8-certificate.svg",
+      image: asset("assets/credentials/amc8-certificate.jpg"),
       alt: "AMC 8 Certificate",
       level: "Top 10% Globally",
       title: "AMC 8 Certificate",
@@ -668,7 +674,7 @@ function CredentialsWall() {
         "Proof that strong results aren't one-off luck — they come from a system. Excellence becomes something you can plan for.",
     },
     {
-      image: "/assets/credentials/kangaroo-medal.svg",
+      image: asset("assets/credentials/kangaroo-medal.jpg"),
       alt: "Canadian Math Kangaroo National Medal, Grade 6",
       level: "National Medalist in Canada",
       title: "Canadian Math Kangaroo National Medal (Grade 6)",
@@ -676,7 +682,7 @@ function CredentialsWall() {
         "Earned in the Grade 3–6 window, when mathematical thinking forms fastest — proof we can take a student to the top of the national field this early.",
     },
     {
-      image: "/assets/credentials/kangaroo-ribbon.svg",
+      image: asset("assets/credentials/kangaroo-ribbon.jpg"),
       alt: "Canadian Math Kangaroo Ribbon, Grade 6",
       level: "Certificate of Excellence",
       title: "Canadian Math Kangaroo Ribbon (Grade 6)",
