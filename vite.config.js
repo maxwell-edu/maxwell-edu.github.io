@@ -7,5 +7,5 @@ import react from "@vitejs/plugin-react";
 // `npm run build` locally just falls back to "/".
 export default defineConfig({
   plugins: [react()],
-  base: process.env.VITE_BASE_PATH || "/",
+  base: "/",
 });
